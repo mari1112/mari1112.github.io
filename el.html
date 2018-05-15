@@ -24,46 +24,14 @@
        </nav>
    </header>
    <main>
-          <form action="https://github.com/mari1112/mari1112.github.io.git/mail.php" method="POST" target="_blank" class="form">
+          <form action="https://github.com/mari1112/mari1112.github.io.git" method="POST" target="_blank" class="form">
            <p><input tupe="text" name="name" class="feedback-input" placeholder="Имя" id="name"></p>
            <p><input tupe="email" name="email" class="feedback-input" placeholder="email" id="email"></p>
            <p><textarea name="text" id="comment" placeholder="Отправьте интерисующий Вас вопрос. Вам ответят в течении рабочего дня" class="feedback-input"></textarea></p>
            <input name="sab" type="submit" value="Отправить" class="button-submit">
            <div class="ease"></div>
        </form>
-       <script>
-		$(function(){
-		    $('#contact').submit(function(){
-		        var errors = false;
-		        $(this).find('span').empty();
-
-		        $(this).find('input').each(function(){
-		            if( $.trim( $(this).val() ) == '' ){
-		                errors = true;
-		                $(this).next().text( 'Заполните это поле');
-		            }
-		        });
-		        if('errors'){
-		            var data = $('#contact').serialize();
-		            $.ajax ({
-		                url: 'mail.php',
-		                type: 'POST',
-		                data: data,
-		                beforeSend: function() {
-		                    $('#submit').next().text('Отправляю...');
-		                },
-		                success: function(res) {
-		                    alert('Заявка успешно отправлена. Наш Менеджер свяжется с Вами в ближайшее время!');
-		                },
-		                error: function() {
-		                    alert('ошибка');
-		                }
-		            });
-		        }
-		        return false;
-		    });
-		});
-	</script>
+       
    </main>
    <footer>
        <nav>
