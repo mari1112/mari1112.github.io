@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Стайская средняя школа</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+<body>
+   <header>
+      <div class="logo">
+          <a href="index.html"><img class="graficlogo" src="img/logo.png" alt= "Logo"> </a>
+      </div> 
+       <nav>
+            <div class="topnav" id="myTopnav">
+                <a href="index.html">Главная</a>
+                <a href="1.html">Ученикам</a>
+                <a href="2.html">Учителям</a>
+                <a href="3.html">Родителям</a>
+                <a href="4.html">Профсоюз</a>
+                <a href="5.html">Об учреждении</a>
+                <a href="6.html">Фото</a>
+            </div>
+       </nav>
+   </header>
+   <main>
+          <form action="https://github.com/Marina1112/staish.github.io/mail.php" method="POST" target="_blank" class="form" id="contact">
+           <p><input tupe="text" name="name" class="feedback-input" placeholder="Имя" id="name"></p>
+           <p><input tupe="email" name="email" class="feedback-input" placeholder="email" id="email"></p>
+           <p><textarea name="text" id="comment" placeholder="Отправьте интерисующий Вас вопрос. Вам ответят в течении рабочего дня" class="feedback-input"></textarea></p>
+           <input name="sab" type="submit" value="Отправить" class="button-submit">
+           <div class="ease"></div>
+       </form>
+       <script>
+		$(function(){
+		    $('#contact').submit(function(){
+		        var errors = false;
+		        $(this).find('span').empty();
+
+		        $(this).find('input').each(function(){
+		            if( $.trim( $(this).val() ) == '' ){
+		                errors = true;
+		                $(this).next().text( 'Заполните это поле');
+		            }
+		        });
+		        if('errors'){
+		            var data = $('#contact').serialize();
+		            $.ajax ({
+		                url: 'mail.php',
+		                type: 'POST',
+		                data: data,
+		                beforeSend: function() {
+		                    $('#submit').next().text('Отправляю...');
+		                },
+		                success: function(res) {
+		                    alert('Заявка успешно отправлена. Наш Менеджер свяжется с Вами в ближайшее время!');
+		                },
+		                error: function() {
+		                    alert('ошибка');
+		                }
+		            });
+		        }
+		        return false;
+		    });
+		});
+	</script>
+   </main>
+   <footer>
+       <nav>
+                <a href="index.html">Главная</a>
+                <a href="1.html">Ученикам</a>
+                <a href="2.html">Учителям</a>
+                <a href="3.html">Родителям</a>
+                <a href="4.html">Профсоюз</a>
+                <a href="5.html">Об учреждении</a>
+                <a href="6.html">Фото</a>  
+       </nav>
+       <div class="logo">
+       <a href="index.html"><img class="graficlogo" src="img/logo.png" alt=""></a>
+       </div>
+       <div class="social">
+          <a href="el.html"><img src="img/em.png" alt=""></a>
+           <a href="http://google.com"><img src="img/goo.png" alt=""></a>
+       </div>
+       <p>Министерство образования Республики Беларусь
+        2018</p>
+   </footer>
+   <script src="js/script.js"></script> 
+</body>
+</html>
